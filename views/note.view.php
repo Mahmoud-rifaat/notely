@@ -5,9 +5,11 @@
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <a href="/notes" class="text-blue-500 hover:underline">Go back...</a>
+        <p>
+            <a href="/notes" class="text-blue-500 hover:underline">Go back...</a>
+        </p>
 
-        <p class="mt-6"><?=$note['body']?></p>
+        <p><?= htmlspecialchars($note['body']) ?></p>
     </div>
 </main>
 
