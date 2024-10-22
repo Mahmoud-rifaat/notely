@@ -1,18 +1,21 @@
-<?php //require base_path('partials/head.php') ?>
+<?php //require base_path('partials/head.php') 
+?>
 <?php require base_path('views/partials/head.php') ?>
 <?php require base_path('views/partials/nav.php') ?>
 <?php require base_path('views/partials/banner.php', [
     'heading' => 'Home',
 ]) ?>
-<?php //require base_path('partials/nav.php') ?>
-<?php //require base_path('partials/banner.php') ?>
+<?php //require base_path('partials/nav.php') 
+?>
+<?php //require base_path('partials/banner.php') 
+?>
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <ul>
             <?php foreach ($notes as $note): ?>
                 <li>
-                    <a href="note?id=<?= $note['id'] ?>" class="text-blue-500 hover:underline">
+                    <a href="/note?id=<?= $note['id'] ?>" class="text-blue-500 hover:underline">
                         <?= htmlspecialchars($note['body']) ?>
                     </a>
                 </li>
@@ -20,7 +23,7 @@
         </ul>
 
         <p class="mt-5">
-            <a href="notes/create" class="text-blue-500 hover:underline">Add new note</a>
+            <a href="/notes/create" class="text-blue-500 hover:underline">Add new note</a>
         </p>
     </div>
 </main>
