@@ -1,12 +1,12 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Response;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
-
 $currentUserId = 1;
+
+$db = App::resolve(Database::class);
 
 
 $note = $db->query(
