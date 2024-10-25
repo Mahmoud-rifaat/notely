@@ -2,6 +2,7 @@
 
 view('registration/create.view.php',
 [
-    'heading' => 'Register'
+    'heading' => 'Register',
+    'errors' => []
 ]);
 
