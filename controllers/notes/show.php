@@ -6,7 +6,7 @@ use Core\Response;
 
 $db = App::resolve(Database::class);
 
-$currentUserId = 1;
+$currentUserId = '11';
 
 
 $note = $db->query(
@@ -15,7 +15,6 @@ $note = $db->query(
         'id' => $_GET['id']
     ]
 )->findOrFail();
-
 
 authorize($note['user_id'] === $currentUserId);
 

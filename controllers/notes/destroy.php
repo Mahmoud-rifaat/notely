@@ -4,13 +4,13 @@ use Core\App;
 use Core\Database;
 use Core\Response;
 
-$currentUserId = 1;
+$currentUserId = '11';
 
 $db = App::resolve(Database::class);
 
 
 $note = $db->query(
-    "select * from notes where id = :id",
+    "SELECT * FROM notes WHERE id = :id",
     [
         'id' => $_POST['id']
     ]
@@ -20,7 +20,7 @@ $note = $db->query(
 authorize($note['user_id'] === $currentUserId);
 
 $db->query(
-    "delete from notes where id = :id",
+    "DELETE FROM notes WHERE id = :id",
     [
         'id' => $_POST['id']
     ]

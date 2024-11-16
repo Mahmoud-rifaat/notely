@@ -7,12 +7,14 @@ use Core\Validator;
 
 $db = APP::resolve(Database::class);
 
-$currentUserId = 1;
+$currentUserId = '11';
 
-$note = $db->query('SELECT * FROM notes WHERE id = :id',
+$note = $db->query(
+    'SELECT * FROM notes WHERE id = :id',
     [
         'id' => $_POST['id']
-    ])->findOrFail();
+    ]
+)->findOrFail();
 
 authorize($note['user_id'] === $currentUserId);
 
@@ -45,4 +47,3 @@ $db->query(
 
 header('location: /notes');
 die();
-
