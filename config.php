@@ -4,7 +4,7 @@ return [
     'database' => [
         'host' => 'localhost',
         'port' => 3306,
-        'dbname' => 'noteapp',
+        'dbname' => 'notely',
         'charset' => 'utf8mb4'
     ],
 ];

@@ -4,7 +4,7 @@ use Core\App;
 use Core\Database;
 use Core\Response;
 
-$currentUserId = '11';
+$currentUserId = $_SESSION['user']['id'];
 
 $db = App::resolve(Database::class);
 
