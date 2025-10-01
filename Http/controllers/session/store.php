@@ -3,6 +3,7 @@
 use Core\App;
 use Core\Authenticator;
 use Core\Database;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 $db = App::resolve(Database::class);
@@ -22,9 +23,6 @@ if ($loginForm->validate([
     $loginForm->error('email', 'Invalid email address or password');
 }
 
-return view(
-    'session/create.view.php',
-    [
-        'errors' => $loginForm->errors()
-    ]
-);
+Session::flash('errors', $loginForm->errors());
+
+return redirect('/login');

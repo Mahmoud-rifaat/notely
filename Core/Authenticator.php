@@ -47,22 +47,6 @@ class Authenticator
 
     public function logout()
     {
-        // clear out the super global, so it can't be referenced anymore
-        $_SESSION = [];
-
-        // delete the session file on the server
-        session_destroy();
-
-        // delete the cookie
-        $params = session_get_cookie_params();
-        setcookie(
-            'PHPSESSID',
-            '',
-            time() - 3600,
-            $params['path'],
-            $params['domain'],
-            $params['secure'],
-            $params['httponly']
-        );
+        Session::destroy();
     }
 }
