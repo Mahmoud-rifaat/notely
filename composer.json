@@ -1,0 +1,31 @@
+{
+  "name": "mahmoud-refaat/notely",
+  "authors": [
+    {
+      "name": "Mahmoud Refaat",
+      "email": "mahmoud.ref2at.dev@gmail.com"
+    }
+  ],
+  "require": {
+    "illuminate/collections": "^12.32"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/",
+      "Http\\": "Http/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^4.1"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
