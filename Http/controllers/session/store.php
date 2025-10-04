@@ -3,29 +3,22 @@
 use Core\App;
 use Core\Authenticator;
 use Core\Database;
-use Core\Session;
 use Http\Forms\LoginForm;
 
 $db = App::resolve(Database::class);
-$loginForm = new LoginForm();
 
-$email = $_POST["email"];
-$password = $_POST["password"];
+$attributes = [
+    'email' => $_POST["email"],
+    'password' => $_POST["password"]
+];
 
+$form = LoginForm::validate($attributes);
 
-if ($loginForm->validate([
-    'email' => $email,
-    'password' => $password
-])) {
-    if ((new Authenticator)->attempt($email, $password)) {
-        redirect('/');
-    }
-    $loginForm->error('email', 'Invalid email address or password');
+$signedIn = (new Authenticator)->attempt($attributes);
+
+if (!$signedIn) {
+    $form->error('email', 'Invalid email address or password')
+        ->throw();
 }
 
-Session::flash('errors', $loginForm->errors());
-Session::flash('old', [
-    'email' => $email
-]);
-
-return redirect('/login');
+redirect('/');

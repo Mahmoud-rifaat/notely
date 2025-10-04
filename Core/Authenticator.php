@@ -12,16 +12,16 @@ class Authenticator
     }
 
 
-    public function attempt($email, $password)
+    public function attempt($credentials)
     {
         $user = $this->db->query(
             "SELECT * FROM users WHERE email = :email",
             [
-                "email" => $email
+                "email" => $credentials['email']
             ]
         )->find();
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($credentials['password'], $user['password'])) {
             $this->login([
                 'name' => $user['name'],
                 'id' => $user['id'],
